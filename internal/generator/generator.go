@@ -20,7 +20,6 @@ func New(basePath string) IGenerator {
 }
 
 func (g *generator) Gen() (err error) {
-
 	tt := new(templates)
 	if err = tt.load(); err != nil {
 		log.Fatalln(err)
