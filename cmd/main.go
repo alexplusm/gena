@@ -1,7 +1,19 @@
 package main
 
-import "fmt"
+import (
+	"flag"
+	"gena/internal/generator"
+	"log"
+)
 
 func main() {
-	fmt.Println("hi")
+	dest := flag.String("dest", "dest", "path to gen")
+
+	log.Println("dest: ", *dest)
+
+	gena := generator.New(*dest)
+
+	if err := gena.Gen(); err != nil {
+		log.Fatalln(err)
+	}
 }
